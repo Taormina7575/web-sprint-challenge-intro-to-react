@@ -1,18 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import styled from 'styled-components'
+import Header from './components/Header/Header';
+import axios from 'axios';
+import Characters from './components/Characters/Characters';
 
+const AppWrapper = styled.div`
+  width: 75%;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,.8);
+`
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  const [characterData, setData] = useState(null)
 
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+  useEffect(() => {
+    axios.get('https://swapi.dev/api/people')
+        .then(res => {
+            setData(res.data.results)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+  }, [])
+  
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <AppWrapper>
+      <Header></Header>
+      <Characters data={characterData}></Characters>
+    </AppWrapper>
   );
 }
 
