@@ -22,6 +22,7 @@ const App = () => {
           console.log(err)
         })
   }, [])
+
   
   return (
     <AppWrapper>

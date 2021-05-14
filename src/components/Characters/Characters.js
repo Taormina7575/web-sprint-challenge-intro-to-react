@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Character from './Character'
+import Character from '../Character'
 
 const ContainerDiv = styled.main`
     display:flex;
@@ -8,7 +8,6 @@ const ContainerDiv = styled.main`
 `
 
 export default function Characters({data}) {
-    console.log(data)
     return (
      <ContainerDiv>
         {data.map((curChar, id) => {
