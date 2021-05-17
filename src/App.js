@@ -20,6 +20,7 @@ const App = () => {
         })
         .catch(err => {
           console.log(err)
+          console.log('this request is returning error')
         })
   }, [])
 

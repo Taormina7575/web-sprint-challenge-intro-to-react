@@ -8,13 +8,16 @@ const ContainerDiv = styled.main`
 `
 
 export default function Characters({data}) {
-    return (
-     <ContainerDiv>
-        {data.map((curChar, id) => {
-            return (
-                <Character data={curChar} key={id}></Character>
-            )
-        })}
-     </ContainerDiv>
-    )
+        return (
+            <ContainerDiv>
+               {data.map((curChar, id) => {
+                   return (
+                       <Character data={curChar} key={id}></Character>
+                   )
+               })}
+            </ContainerDiv>
+           )
+
+
+           
 }
